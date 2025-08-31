@@ -21,6 +21,10 @@ educatorRouter.post(
 );
 educatorRouter.get("/courses", protectEducator, getEducatorCourses);
 educatorRouter.get("/dashboard", protectEducator, getEducatorDashboardData);
-educatorRouter.get("/dashboard", protectEducator, getEnrolledStudentsData);
+educatorRouter.get(
+  "/enrolled-students",
+  protectEducator,
+  getEnrolledStudentsData
+);
 
 export default educatorRouter;

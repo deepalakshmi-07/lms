@@ -32,7 +32,7 @@ export const clerkWebhooks = async (req, res) => {
       }
       case "user.updated": {
         const userData = {
-          email: data.email_addresses.email_address, // Assuming same correction as above
+          email: data.email_addresses[0].email_address, // Assuming same correction as above
           name: `${data.first_name} ${data.last_name}`,
           imageUrl: data.image_url,
         };
@@ -94,10 +94,16 @@ export const stripeWebhooks = async (req, res) => {
         purchaseData.courseId.toString()
       );
 
-      courseData.enrolledStudents.push(userData);
+      // Prevent duplicate enrollment
+      if (!courseData.enrolledStudents.includes(userData._id)) {
+        courseData.enrolledStudents.push(userData._id);
+      }
       await courseData.save();
 
-      userData.enrolledCourses.push(courseData._id);
+      // Prevent duplicate course reference in user
+      if (!userData.enrolledCourses.includes(courseData._id)) {
+        userData.enrolledCourses.push(courseData._id);
+      }
       await userData.save();
 
       purchaseData.status = "completed";

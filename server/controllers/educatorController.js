@@ -1,6 +1,8 @@
 import { clerkClient } from "@clerk/express";
 import Course from "../models/Course.js";
 import { v2 as cloudinary } from "cloudinary";
+import Purchase from "../models/Purchase.js";
+import User from "../models/User.js";
 
 // Update role to educator
 export const updateRoleToEducator = async (req, res) => {
@@ -23,7 +25,8 @@ export const updateRoleToEducator = async (req, res) => {
 // Add new course
 export const addCourse = async (req, res) => {
   try {
-    const educatorId = req.auth.userId;
+    const { userId: educatorId } = req.auth();
+    // const educatorId = req.auth.userId;
     const { courseData } = req.body;
     const imageFile = req.file;
 
@@ -52,7 +55,8 @@ export const addCourse = async (req, res) => {
 // Get educator courses
 export const getEducatorCourses = async (req, res) => {
   try {
-    const educator = req.auth.userId;
+    const { userId: educator } = req.auth();
+    // const educator = req.auth.userId;
     const courses = await Course.find({ educator });
     res.status(200).json({ success: true, courses });
   } catch (error) {
@@ -64,7 +68,8 @@ export const getEducatorCourses = async (req, res) => {
 // Get educator dashboard data  (Total earnings,enrolled students and no of courses)
 export const getEducatorDashboardData = async (req, res) => {
   try {
-    const educator = req.auth.userId;
+    const { userId: educator } = req.auth();
+    //const educator = req.auth.userId;
 
     // Find all courses created by this educator
     const courses = await Course.find({ educator });
@@ -117,7 +122,8 @@ export const getEducatorDashboardData = async (req, res) => {
 // Get enrolled student data with purchase data for a specific educator
 export const getEnrolledStudentsData = async (req, res) => {
   try {
-    const educator = req.auth.userId;
+    const { userId: educator } = req.auth();
+    //const educator = req.auth.userId;
 
     // Fetch all courses created by the educator
     const courses = await Course.find({ educator });
