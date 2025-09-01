@@ -8,8 +8,8 @@ const CallToAction = () => {
         Learn anything, anytime, anywhere
       </h1>
       <p className="text-gray-500 sm:text-sm">
-        Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id
-        veniam aliqua proident excepteur commodo do ea.
+        Explore a wide range of courses designed to help you grow your career
+        and skills. Flexible learning with expert guidance, available on-demand.
       </p>
       <div className="flex items-center font-medium gap-6 mt-4">
         <button className="px-10 py-3 rounded-md text-white bg-blue-600">

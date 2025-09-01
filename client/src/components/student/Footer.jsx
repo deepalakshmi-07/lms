@@ -12,10 +12,11 @@ const Footer = () => {
         <div className="flex flex-col md:items-start items-center w-full">
           <img src={assets.logo_dark} alt="" />
           <p className="mt-6 text-center md:text-left text-sm text-white/80">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-            possimus distinctio optio maxime ratione est, molestiae minus eum
-            quibusdam magnam incidunt nemo inventore nobis. Cumque recusandae
-            itaque vitae repellendus commodi?
+            StudyZone is an online learning platform built for professionals and
+            students worldwide. Our mission is to make high-quality education
+            accessible, affordable, and flexible. Whether you're reskilling,
+            upskilling, or just exploring, StudyZone provides the tools to help
+            you succeed.
           </p>
         </div>
         <div className="flex flex-col md:items-start items-center w-full">
@@ -40,7 +41,8 @@ const Footer = () => {
             Subscribe to our newsletter
           </h2>
           <p className="text-sm text-white/80">
-            The latest news, articles, and resources, sent to your inbox weekly.
+            The latest news, articles, and resources delivered straight to your
+            inbox.
           </p>
           <div className="flex items-center gap-2 pt-4">
             <input

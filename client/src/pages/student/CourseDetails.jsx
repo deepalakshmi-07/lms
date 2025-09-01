@@ -201,7 +201,7 @@ const CourseDetails = () => {
                                 <p
                                   onClick={() =>
                                     setPlayerData({
-                                      videoId: lecture.lectureUrl
+                                      videoId: lecture.lectureURL
                                         .split("/")
                                         .pop(),
                                     })
